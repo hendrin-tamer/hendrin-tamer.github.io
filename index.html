@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hendrin Tamer | Full-Stack Developer</title>
+  <meta name="description" content="Hendrin Abdullah Tamer – Full-Stack Developer building web systems with Laravel, React, Node.js and MySQL.">
+  <meta name="theme-color" content="#e8679a">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Quicksand:wght@400;500;600;700&family=Dancing+Script:wght@600;700&family=Baloo+Bhaijaan+2:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!--
+    "Code Kingdom" theme.
+    All visible text is written here in English. Each translatable element has
+    data-i18n="key"; the German, Arabic and Kurdish versions live in translations.js.
+    The previous dark design is kept in index-dark.html.
+  -->
+
+  <!-- magical background: gradient sky + floating sparkles / stars / {} (filled by script.js) -->
+  <div class="sky" aria-hidden="true"></div>
+  <div class="floaties" id="floaties" aria-hidden="true"></div>
+  <div class="scroll-progress" id="progress"></div>
+
+  <!-- ========== NAVBAR ========== -->
+  <header class="nav" id="nav">
+    <div class="container nav-inner">
+      <a href="#home" class="logo"><span class="logo-mark">H</span><span>Hendrin<span class="dot">✦</span></span></a>
+      <nav class="nav-links" id="navLinks">
+        <a href="#about" data-i18n="nav.about">About</a>
+        <a href="#skills" data-i18n="nav.skills">Skills</a>
+        <a href="#projects" data-i18n="nav.projects">Projects</a>
+        <a href="#story" data-i18n="nav.story">My Story</a>
+        <a href="#contact" data-i18n="nav.contact">Contact</a>
+      </nav>
+      <div class="nav-actions">
+        <div class="lang-switch">
+          <button class="icon-btn lang-btn" id="langBtn" aria-haspopup="true" aria-expanded="false" aria-label="Language">
+            <svg viewBox="0 0 24 24" class="ico sm"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>
+            <span id="langLabel">EN</span>
+          </button>
+          <ul class="lang-menu" id="langMenu" role="menu">
+            <li><button data-lang="en" role="menuitem">English</button></li>
+            <li><button data-lang="de" role="menuitem">Deutsch</button></li>
+            <li><button data-lang="ar" role="menuitem">العربية</button></li>
+            <li><button data-lang="ku" role="menuitem">Kurdî</button></li>
+          </ul>
+        </div>
+        <button class="icon-btn" id="themeBtn" aria-label="Toggle theme">🌙</button>
+        <button class="icon-btn menu-btn" id="menuBtn" aria-label="Menu">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ========== HERO ========== -->
+    <section class="hero" id="home">
+      <div class="container hero-inner">
+        <div class="hero-text">
+          <p class="script-title reveal" data-i18n="hero.kicker">Welcome to my Code Kingdom</p>
+
+          <!-- animated "Hello World" terminal -->
+          <div class="terminal reveal" aria-hidden="true">
+            <div class="term-bar"><i></i><i></i><i></i><span>magic.js</span></div>
+            <code><span class="kw">console</span>.<span class="fn">log</span>(<span class="str" id="helloText"></span><span class="caret-sm">▍</span>)</code>
+          </div>
+
+          <h1 class="reveal">
+            <span data-i18n="hero.hi">Hi, I'm</span><br>
+            <span class="gradient-text">Hendrin Tamer</span>
+          </h1>
+          <p class="typing reveal"><span id="typed">Full-Stack Developer</span><span class="caret">|</span></p>
+          <p class="lead reveal" data-i18n="hero.lead">I turn business dreams into fast, secure and beautiful web apps — with a sprinkle of magic in every line of code.</p>
+          <div class="hero-buttons reveal">
+            <a href="#contact" class="btn btn-primary">🪄 <span data-i18n="hero.cta">Send a Wish</span></a>
+            <a href="assets/Hendrin-CV.pdf" class="btn btn-ghost" download>
+              <svg viewBox="0 0 24 24" class="ico"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>
+              <span data-i18n="hero.cv">Download CV</span>
+            </a>
+          </div>
+          <div class="hero-socials reveal">
+            <a href="mailto:hndreen99@gmail.com" aria-label="Email"><svg viewBox="0 0 24 24" class="ico"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></a>
+            <a href="https://wa.me/963995474927" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" class="ico fill"><path d="M12.04 2a9.9 9.9 0 0 0-8.47 15.02L2.5 21.5l4.6-1.05A9.9 9.9 0 1 0 12.04 2Zm0 18.1a8.2 8.2 0 0 1-4.18-1.15l-.3-.18-2.73.62.65-2.65-.2-.32a8.2 8.2 0 1 1 6.76 3.68Zm4.5-6.14c-.25-.12-1.46-.72-1.69-.8-.22-.08-.39-.12-.55.13-.16.24-.63.8-.78.96-.14.16-.29.18-.53.06a6.7 6.7 0 0 1-3.32-2.9c-.25-.43.25-.4.72-1.33.08-.16.04-.3-.02-.42-.06-.12-.55-1.33-.76-1.82-.2-.48-.4-.41-.55-.42h-.47a.9.9 0 0 0-.65.3 2.74 2.74 0 0 0-.86 2.04c0 1.2.88 2.37 1 2.53.12.16 1.73 2.64 4.19 3.7 1.56.67 2.17.73 2.95.61.47-.07 1.46-.6 1.66-1.17.2-.58.2-1.07.15-1.17-.07-.11-.23-.17-.47-.3Z"/></svg></a>
+            <!-- TODO: replace # with your real GitHub / LinkedIn links -->
+            <a href="https://github.com/hendrin-tamer" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" class="ico fill"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.46-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.08 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02a9.6 9.6 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.37.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0 0 12 2Z"/></svg></a>
+            <a href="#" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" class="ico fill"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13ZM7.12 20.45H3.56V9h3.56v11.45Z"/></svg></a>
+          </div>
+        </div>
+
+        <!-- profile photo in a magic mirror -->
+        <div class="hero-visual reveal" id="heroVisual">
+          <div class="photo-blob" aria-hidden="true"></div>
+          <div class="orbit o1" aria-hidden="true"><i></i></div>
+          <div class="orbit o2" aria-hidden="true"><i></i><i></i></div>
+          <div class="sparkles" aria-hidden="true"><b></b><b></b><b></b><b></b><b></b><b></b></div>
+          <div class="photo-tilt" id="photoTilt">
+            <div class="photo-ring">
+              <img src="assets/photo.jpg" alt="Hendrin Abdullah Tamer">
+            </div>
+            <span class="crown" aria-hidden="true">👑</span>
+          </div>
+          <span class="chip c1">⚡ Laravel</span>
+          <span class="chip c2">⚛️ React</span>
+          <span class="chip c3">🟢 Node.js</span>
+          <span class="chip c4">🗄️ MySQL</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== ABOUT ========== -->
+    <section id="about">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="script-kicker" data-i18n="about.kicker">Once upon a time…</span>
+          <h2 data-i18n="about.title">The <em>Princess</em> of Code</h2>
+        </div>
+
+        <div class="bento">
+          <div class="tile tile-about reveal">
+            <p data-i18n="about.p1">Once upon a time, a curious girl from Qamishli discovered that computers could learn spells. She earned her Bachelor's in Computer Systems Engineering (86%) and has been casting full-stack magic professionally ever since.</p>
+            <ul class="magic-list">
+              <li data-i18n="about.m1">🏰 <b>Back-end is my castle</b> — Laravel and Node.js build strong walls that keep your data safe.</li>
+              <li data-i18n="about.m2">🪄 <b>Front-end is my wand</b> — React, HTML &amp; CSS turn ideas into screens people love to touch.</li>
+              <li data-i18n="about.m3">📜 <b>Databases are my spell books</b> — SQL &amp; MySQL remember everything, and I make them fast.</li>
+              <li data-i18n="about.m4">🧚 <b>Testing is my fairy godmother</b> — she finds every bug before the clock strikes midnight.</li>
+            </ul>
+            <p data-i18n="about.p3">At Frontiertech I build and test real-world apps, and I've taught little coders their very first spells in HTML, CSS &amp; JavaScript. Next chapter: mobile magic with Flutter.</p>
+          </div>
+
+          <div class="tile stat reveal"><strong data-count="3">0</strong><sup>+</sup><span data-i18n="about.years">Years of experience</span></div>
+          <div class="tile stat reveal"><strong data-count="86">0</strong><sup>%</sup><span data-i18n="about.grade">Graduation grade</span></div>
+
+          <div class="tile tile-langs reveal">
+            <h3 data-i18n="about.langs">Languages</h3>
+            <div class="lang-row"><span data-i18n="lang.ku">Kurdish</span><span class="lvl" data-i18n="lvl.native">Native</span></div>
+            <div class="lang-row"><span data-i18n="lang.ar">Arabic</span><span class="lvl" data-i18n="lvl.native2">Native</span></div>
+            <div class="lang-row"><span data-i18n="lang.en">English</span><span class="lvl">B1</span></div>
+            <div class="lang-row"><span data-i18n="lang.de">German</span><span class="lvl">B1</span></div>
+          </div>
+
+          <div class="tile tile-info reveal">
+            <h3 data-i18n="info.title">Personal info</h3>
+            <div class="info-row">
+              <span class="info-ico">📍</span>
+              <div><small data-i18n="info.location">Location</small><span data-i18n="info.locationVal">Qamishli, Syria · Open to remote work</span></div>
+            </div>
+            <div class="info-row">
+              <span class="info-ico">🎂</span>
+              <div><small data-i18n="info.born">Date of birth</small><span data-i18n="info.bornVal">15 January 1999</span></div>
+            </div>
+            <div class="info-row">
+              <span class="info-ico">📞</span>
+              <div><small data-i18n="info.phone">Phone</small><a href="tel:+963995474927" class="ltr">+963 995 474 927</a></div>
+            </div>
+          </div>
+
+          <div class="tile tile-interests reveal">
+            <h3 data-i18n="about.interests">I'm into</h3>
+            <ul class="tags">
+              <li data-i18n="int.web">Web Technologies</li>
+              <li data-i18n="int.ai">Artificial Intelligence</li>
+              <li data-i18n="int.problem">Problem Solving</li>
+              <li data-i18n="int.teach">Teaching Code</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== SKILLS: clouds full of glowing bubbles ========== -->
+    <section id="skills">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="script-kicker" data-i18n="skills.kicker">My magic toolbox</span>
+          <h2 data-i18n="skills.title">Spells I know</h2>
+        </div>
+        <div class="clouds">
+          <div class="cloud reveal">
+            <h3>🎨 Front-End</h3>
+            <div class="bubbles"><span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>React</span><span>jQuery</span></div>
+          </div>
+          <div class="cloud reveal">
+            <h3>⚙️ Back-End</h3>
+            <div class="bubbles"><span>PHP</span><span>Laravel</span><span>Node.js</span><span>REST APIs</span></div>
+          </div>
+          <div class="cloud reveal">
+            <h3>🗄️ <span data-i18n="skills.db">Databases</span></h3>
+            <div class="bubbles"><span>SQL</span><span>MySQL</span><span>NoSQL</span></div>
+          </div>
+          <div class="cloud reveal">
+            <h3>🧪 <span data-i18n="skills.qa">Quality &amp; Testing</span></h3>
+            <div class="bubbles">
+              <span data-i18n="qa.testing">Software Testing</span>
+              <span data-i18n="qa.debugging">Debugging</span>
+              <span data-i18n="qa.performance">Performance</span>
+              <span data-i18n="qa.security">Security</span>
+            </div>
+          </div>
+          <div class="cloud reveal">
+            <h3>💻 <span data-i18n="skills.langs">Programming Languages</span></h3>
+            <div class="bubbles"><span>JavaScript</span><span>PHP</span><span>C#</span><span>C++</span></div>
+          </div>
+          <div class="cloud learning reveal">
+            <h3>📱 <span data-i18n="skills.learning">Currently Learning</span></h3>
+            <div class="bubbles"><span>Flutter</span><span>Dart</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== PROJECTS: doll-box cards that flip to reveal the tech ========== -->
+    <section id="projects">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="script-kicker" data-i18n="projects.kicker">The collection</span>
+          <h2 data-i18n="projects.title">Projects in a box</h2>
+          <p class="hint" data-i18n="projects.hint">Hover (or tap) a box to open it ✨</p>
+        </div>
+        <div class="boxes">
+
+
+          <article class="box reveal" tabindex="0">
+            <div class="box-inner">
+              <div class="box-front box-pink">
+                <span class="box-brand">Code Collection</span>
+                <div class="box-window"><span class="box-emoji">🚗</span></div>
+                <h3 data-i18n="p2.title">RentalOS — Car Rental Marketplace</h3>
+                <span class="box-tag">Laravel &#183; Livewire &#183; Stripe &#183; Flutter</span>
+              </div>
+              <div class="box-back">
+                <div class="mini-screen">
+                  <div class="term-bar"><i></i><i></i><i></i><span>BookingService.php</span></div>
+                  <pre>  -&gt;where(&#39;start_datetime&#39;, &#39;&lt;&#39;, $end)
+  -&gt;where(&#39;end_datetime&#39;, &#39;&gt;&#39;, $start)
+  -&gt;exists();</pre>
+                </div>
+                <p data-i18n="p2.desc">A multi-vendor car rental marketplace and fleet management platform for rental businesses, with a Flutter app for customers and staff, in English, Arabic and Kurdish Sorani.</p>
+                <ul class="hl">
+                  <li data-i18n="p2.h1">Four role-based panels with multi-tenant isolation</li>
+                  <li data-i18n="p2.h2">Layered pricing engine with demand-based rates</li>
+                  <li data-i18n="p2.h3">Stripe payments with 3D Secure and deposit holds</li>
+                  <li data-i18n="p2.h4">Race-safe bookings with row locks in transactions</li>
+                </ul>
+                <span class="soon" data-i18n="p2.badge">🔒 Private code &#183; available on request</span>
+              </div>
+            </div>
+          </article>
+          <article class="box reveal" tabindex="0">
+            <div class="box-inner">
+              <div class="box-front box-purple">
+                <span class="box-brand">Code Collection</span>
+                <div class="box-window"><span class="box-emoji">🍽️</span></div>
+                <h3 data-i18n="p3.title">Starbelly — Restaurant Ordering System</h3>
+                <span class="box-tag">Laravel &#183; Filament &#183; Flutter &#183; MySQL</span>
+              </div>
+              <div class="box-back">
+                <div class="mini-screen">
+                  <div class="term-bar"><i></i><i></i><i></i><span>OrderStatus.php</span></div>
+                  <pre>self::Ready =&gt;
+  $type === OrderType::Delivery
+    ? [self::Delivering, self::Completed,
+       self::Cancelled]
+    : [self::Completed, self::Cancelled],</pre>
+                </div>
+                <p data-i18n="p3.desc">A Laravel 12 ordering and management system for restaurants: a Filament admin panel for staff and a Flutter customer app that uses a token-secured REST API, in Arabic and English.</p>
+                <ul class="hl">
+                  <li data-i18n="p3.h1">Order state machine with row locks and audit log</li>
+                  <li data-i18n="p3.h2">Server-side pricing, coupons and delivery zones</li>
+                  <li data-i18n="p3.h3">Filament 5 panel: roles, reports with CSV export</li>
+                  <li data-i18n="p3.h4">Flutter app with idempotent orders and FCM push</li>
+                </ul>
+                <span class="soon" data-i18n="p3.badge">🔒 Private code &#183; available on request</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== STORY (experience & education) ========== -->
+    <section id="story">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="script-kicker" data-i18n="story.kicker">Chapter by chapter</span>
+          <h2 data-i18n="story.title">My Story</h2>
+        </div>
+
+        <div class="timeline">
+          <div class="tl-item reveal">
+            <span class="tl-date" data-i18n="exp1.date">Jul 2023 – Present</span>
+            <h3>Full-Stack Developer &amp; Software Tester</h3>
+            <span class="tl-org">Frontiertech · <span data-i18n="exp.city">Qamishli</span></span>
+            <ul>
+              <li data-i18n="exp1.b1">Develop and maintain full-stack web apps with React and Node.js.</li>
+              <li data-i18n="exp1.b2">Design and implement RESTful APIs connecting front-end and back-end.</li>
+              <li data-i18n="exp1.b3">Optimize SQL / MySQL queries and apply security and performance improvements.</li>
+              <li data-i18n="exp1.b4">Test, debug and write scripts validating back-end services and data integrity.</li>
+            </ul>
+          </div>
+
+          <div class="tl-item reveal">
+            <span class="tl-date" data-i18n="exp2.date">Jan 2023 – May 2023</span>
+            <h3>Trainee Front-End Developer</h3>
+            <span class="tl-org">AraAcademy · <span data-i18n="exp.city2">Qamishli</span></span>
+            <ul>
+              <li data-i18n="exp2.b1">Built responsive interfaces with HTML, CSS and JavaScript from UI/UX designs.</li>
+              <li data-i18n="exp2.b2">Front-end testing, bug fixing and hands-on work with React.</li>
+            </ul>
+          </div>
+
+          <div class="tl-item reveal">
+            <h3 data-i18n="exp3.title">Programming Instructor for Children</h3>
+            <p data-i18n="exp3.desc">Taught HTML, CSS and JavaScript through fun, beginner-friendly projects.</p>
+          </div>
+
+          <div class="tl-item reveal">
+            <h3 data-i18n="exp4.title">Child Affairs Committee</h3>
+            <p data-i18n="exp4.desc">Contributed to programs supporting children.</p>
+          </div>
+
+          <div class="tl-item edu reveal">
+            <span class="tl-date" data-i18n="edu.date">Oct 2018 – Jun 2022</span>
+            <h3 data-i18n="edu.title">B.Sc. Computer Systems Engineering</h3>
+            <span class="tl-org" data-i18n="edu.org">Cordoba Private University · Grade 86%</span>
+          </div>
+
+          <div class="tl-item edu reveal">
+            <h3>ICDL</h3>
+            <span class="tl-org">International Computer Driving Licence</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== CONTACT: send a wish ========== -->
+    <section id="contact">
+      <div class="container">
+        <div class="wish-card reveal">
+          <div class="wish-text">
+            <span class="script-kicker" data-i18n="contact.kicker">Make a wish</span>
+            <h2 data-i18n="contact.title">Send me a <span class="gradient-text">wish</span> ✨</h2>
+            <p class="lead" data-i18n="contact.lead">Hiring for your team or dreaming up a new project? Tell me about it — wishes really do come true here.</p>
+            <div class="wish-links">
+              <a href="mailto:hndreen99@gmail.com">✉️ hndreen99@gmail.com</a>
+              <a href="https://wa.me/963995474927" target="_blank" rel="noopener">💬 <span data-i18n="contact.whatsapp">WhatsApp</span></a>
+              <a href="tel:+963995474927">📞 <span class="ltr">+963 995 474 927</span></a>
+              <a href="https://github.com/hendrin-tamer" target="_blank" rel="noopener">GitHub ↗</a>
+              <a href="#" target="_blank" rel="noopener">LinkedIn ↗</a>
+            </div>
+          </div>
+
+          <!-- Opens the visitor's email app with the message filled in (no server needed) -->
+          <form class="wish-form" id="wishForm" data-to="hndreen99@gmail.com">
+            <label>
+              <span data-i18n="form.name">Your name</span>
+              <input type="text" name="name" required autocomplete="name">
+            </label>
+            <label>
+              <span data-i18n="form.email">Your email</span>
+              <input type="email" name="email" required autocomplete="email">
+            </label>
+            <label>
+              <span data-i18n="form.msg">Your wish</span>
+              <textarea name="message" rows="5" required></textarea>
+            </label>
+            <button type="submit" class="btn btn-primary wide">🪄 <span data-i18n="form.send">Send my wish</span></button>
+            <small class="form-note" data-i18n="form.note">This opens your email app with your message ready to send.</small>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <span>© <span id="year"></span> Hendrin Abdullah Tamer</span>
+      <span><span data-i18n="footer.built">Made with code, coffee &amp; a little magic</span> 💖</span>
+    </div>
+  </footer>
+
+  <a href="#home" class="to-top" id="toTop" aria-label="Back to top">↑</a>
+  <div class="toast" id="toast" data-i18n="toast">Opening your email app… ✨</div>
+
+  <script src="translations.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
